@@ -1,0 +1,92 @@
+2006-12-24  Djihed Afifi  <djihed@gmail.com>
+
+	* doc/* : Added man page.
+
+	* src/main.c : function prototypes removed to header.
+	use gnome translation system.
+	localised date string.
+
+	* src/main.h : complete function proptoypes.
+
+	* scr/defines.h : no need for gettext macros.
+
+	* configure.ac : remade autotools.
+
+	* Makefile.am : remade autotools.
+
+	* autogen.sh : use gnome autotools.
+
+	* src/Makefile.h : remade autotools.
+
+2006-12-07  Djihed Afifi  <djihed@gmail.com>
+
+	* src/main.c : move defined PROGRAM_NAME to a var.
+
+2006-12-17  Abderrahim Kitouni  <a.kitouni@gmail.com>
+
+	* bootstrap, configure.in : use intltool.
+
+	* po/POTFILE.in : added desktop file and gconf schemas.
+
+	* po/minbar.pot : updated.
+
+2006-12-07  Djihed Afifi  <djihed@gmail.com>
+
+	* main.c : Add some logic to avoid displaying hours when there are 0.
+
+	* data/minbar.glade.in : unmarked non needed translations
+
+	* defines.h : more complete gettext support (for plurals)
+
+	* po/ar.po : more translations - testing if I'm missing any
+
+	* AUTHORS : updated.
+
+	* TODO : More information on what is needed.
+	
+2006-12-16  Abderrahim Kitouni  <a.kitouni@gmail.com>
+
+	* main.c : Added i18n support (using gettext).
+
+	* data/minbar.schemas : Macca is GMT+3, and not -3.
+
+	* defines.h : Added a shortcut for gettext
+
+	* bootstrap : added a call to glib-gettextize.
+
+	* po/ : Added POTFILE.in, minbar.pot, and ar.po
+	
+	* configure.in, Makefile.am : added gettext support and po subdirectory.
+
+	* data/minbar.glade.in, src/Makefile.am : fixed pixmaps.
+	
+	* TODO : updated accordingly.
+
+2006-12-07  Djihed Afifi  <djihed@gmail.com>
+
+	* main.c : USE_NOTIFY checks.
+	minimise to tray.
+
+	* configure.in : libnotify checks.
+	
+	* minbar.glade : Cleaner preferences.
+	Added options to menu popup.
+
+2006-12-07  Djihed Afifi  <djihed@gmail.com>
+
+	* main.c : Added notifications using libnotify. 
+	Added gtkstatusicon check to hide close button. 
+	Added tray icon tooltip.
+	Added Advanced preferences (method, notify..)
+
+	* minbar.glade: Advanced preferences. Close now quits.
+
+	* configure.in: libnotify check.
+
+	* minbar.schemas: schemas for notif, notiftime, method.
+
+	* prefs.h : New preferences.
+
+2006-12-01  Djihed Afifi  <djihed@gmail.com>
+
+	* Initial check in.

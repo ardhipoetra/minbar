@@ -1,0 +1,4 @@
+src/main.c
+data/minbar.glade.in
+data/minbar.schemas
+minbar.desktop
