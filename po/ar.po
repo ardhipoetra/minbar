@@ -1,206 +1,287 @@
-# Arabic translation of gprayer.
+# translation of ar.po3.po to Arabic
+# Arabic translation of Minbar.
 # Copyright (C) 2006 Djihed Afifi.
 # This file is distributed under the same license as the gprayer package.
+#
 # Abderrahim KITOUNI <a.kitouni@gmail.com>, 2006.
-# , fuzzy
-#
-#
+# Khaled Hosny <khaledhosny@eglug.org>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: gprayer 0.1\n"
+"Project-Id-Version: ar.po3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-25 02:49+0000\n"
-"PO-Revision-Date: 2006-12-25 02:50+0100\n"
+"POT-Creation-Date: 2007-12-21 22:03+0000\n"
+"PO-Revision-Date: 2007-12-22 11:42+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: ../src/main.c:125
-msgid "Time for prayer:"
-msgstr "حان وقت صلاة: "
-
-#: ../src/main.c:133
-#: ../src/main.c:238
+#: ../src/main.c:156
 #, c-format
-msgid "%d minutes until %s prayer."
-msgstr "بقيت %d دقائق لصلاة %s"
+msgid "Time for prayer: %s"
+msgstr "حان وقت صلاة: %s"
 
-#: ../src/main.c:144
+#: ../src/main.c:162
+#: ../src/main.c:170
 #, c-format
-msgid "%d hours and %d minutes until %s prayer."
-msgstr "بقيت %d ساعات و %d دقائق لصلاة %s"
+msgid "%d %s until %s prayer."
+msgstr "تفصلنا %Id %s عن صلاة %s"
+
+#: ../src/main.c:164
+#: ../src/main.c:182
+#: ../src/main.c:390
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "دقيقة"
+msgstr[1] "دقيقة"
+msgstr[2] "دقيقتين"
+msgstr[3] "دقائق"
+msgstr[4] "دقيقة"
+msgstr[5] "دقيقة"
+
+#: ../src/main.c:172
+#: ../src/main.c:180
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "ساعة"
+msgstr[1] "ساعة"
+msgstr[2] "ساعتين"
+msgstr[3] "ساعات"
+msgstr[4] "ساعة"
+msgstr[5] "ساعة"
+
+#: ../src/main.c:178
+#, c-format
+msgid "%d %s and %d %s until %s prayer."
+msgstr "تفصلنا %Id %s و %Id %s عن صلاة %s"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #. *             copy it if you're unsure
 #. *             This will print an example: 12 January 2007
 #.
-#: ../src/main.c:177
+#: ../src/main.c:217
 msgid "%d %B %G"
 msgstr "%d %B %G"
 
-#: ../src/main.c:252
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
+#. *             copy it if you're unsure
+#. *             This will print an example: 19:17.
+#. *             if you want to use 12 hour format, use: %I:%M %p
+#. *             which will print something similar to: 7:17 pm
+#.
+#: ../src/main.c:229
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#. The comma may differ from language to language
+#: ../src/main.c:237
+msgid ","
+msgstr "،"
+
+#: ../src/main.c:283
+#, c-format
+msgid "%d minutes until %s prayer."
+msgstr "بقي %Id دقائق على صلاة %s"
+
+#: ../src/main.c:298
 #, c-format
 msgid "It is time for %s prayer."
 msgstr "حان وقت صلاة %s"
 
-#: ../src/main.c:584
+#: ../src/main.c:749
+#: ../src/main.c:840
+#, c-format
 msgid "Invalid calculation method in preferences, using 5: Muslim world League \n"
 msgstr "طريقة الحساب التي حددتها غير سليمة سأستعمل 5 : رابطة العالم الإسلامي\n"
 
-#: ../src/main.c:707
+#: ../src/main.c:1054
 #, c-format
 msgid "Error: %s\n"
 msgstr "خطأ: %s\n"
 
-#: ../src/main.c:770
+#: ../src/main.c:1123
 msgid "All files"
 msgstr "كل الملفات"
 
-#: ../src/main.c:776
+#: ../src/main.c:1129
 msgid "Supported files"
-msgstr "ملفات مدعومة"
+msgstr "الملفات المدعومة"
 
-#. I couldn't find a better way, feel free to change
-#: ../src/main.c:900
+#: ../src/main.c:1252
+#: ../minbar.desktop.in.h:2
 msgid "Minbar Prayer Times"
-msgstr "أوقات الصّلاة "
+msgstr "برنامج مواقيت الصّلاة «منبر»"
 
-#: ../src/main.c:902
+#: ../src/main.c:1254
 msgid "skip"
-msgstr "تخطي"
+msgstr "تخطى"
 
-#: ../src/main.c:903
+#: ../src/main.c:1255
 msgid "Muharram"
 msgstr "محرّم"
 
-#: ../src/main.c:904
+#: ../src/main.c:1256
 msgid "Safar"
 msgstr "صفر"
 
-#: ../src/main.c:905
+#: ../src/main.c:1257
 msgid "Rabi I"
 msgstr "ربيع الأوّل"
 
-#: ../src/main.c:906
+#: ../src/main.c:1258
 msgid "Rabi II"
 msgstr "ربيع الثّاني"
 
-#: ../src/main.c:907
+#: ../src/main.c:1259
 msgid "Jumada I"
 msgstr "جمادى الأولى"
 
-#: ../src/main.c:908
+#: ../src/main.c:1260
 msgid "Jumada II"
 msgstr "جمادى الثانية"
 
-#: ../src/main.c:909
+#: ../src/main.c:1261
 msgid "Rajab"
 msgstr "رجب "
 
-#: ../src/main.c:910
+#: ../src/main.c:1262
 msgid "Shaaban"
 msgstr "شعبان"
 
-#: ../src/main.c:911
+#: ../src/main.c:1263
 msgid "Ramadan"
 msgstr "رمضان"
 
-#: ../src/main.c:912
+#: ../src/main.c:1264
 msgid "Shawwal"
 msgstr "شوّال"
 
-#: ../src/main.c:913
+#: ../src/main.c:1265
 msgid "Thul-Qiaadah"
 msgstr "ذو القعدة"
 
-#: ../src/main.c:914
+#: ../src/main.c:1266
 msgid "Thul-Hijja"
 msgstr "ذو الحجة"
 
-#: ../src/main.c:916
+#: ../src/main.c:1268
 msgid "Subh"
 msgstr "الصّبح"
 
-#: ../src/main.c:917
+#: ../src/main.c:1269
 msgid "Shorook"
 msgstr "الشّروق"
 
-#: ../src/main.c:918
+#: ../src/main.c:1270
 msgid "Dhuhr"
 msgstr "الظّهر"
 
-#: ../src/main.c:919
+#: ../src/main.c:1271
 msgid "Asr"
 msgstr "العصر"
 
-#: ../src/main.c:920
+#: ../src/main.c:1272
 msgid "Maghreb"
 msgstr "المغرب"
 
-#: ../src/main.c:921
+#: ../src/main.c:1273
 msgid "Isha'a"
 msgstr "العشاء"
 
-#: ../data/minbar.glade.in.h:1
-msgid "(in minutes)"
-msgstr "(بالدقائق)"
+#: ../src/main.c:1286
+msgid "Hide main window on start up."
+msgstr "اخفِ النافذة الرئيسيّة عند البدأ"
 
-#: ../data/minbar.glade.in.h:2
-msgid "<b>Athan</b>"
-msgstr "<b>الأذان</b>"
+#: ../src/main.c:1441
+msgid "In Makkah!"
+msgstr "في مكّة"
 
-#: ../data/minbar.glade.in.h:3
-msgid "<b>Calculation Method:</b>"
-msgstr "<b>طريقة الحساب:</b>"
+#: ../src/main.c:1490
+msgid "Qibla direction"
+msgstr "اتجاه القبلة"
 
-#: ../data/minbar.glade.in.h:4
-msgid "<b>Location</b>"
-msgstr "<b>المكان</b>"
+#: ../src/main.c:1492
+msgid "East"
+msgstr "شرق"
 
-#: ../data/minbar.glade.in.h:5
-msgid "<b>Notifications:</b>"
-msgstr "<b>التنبيهات:</b>"
+#: ../src/main.c:1492
+msgid "West"
+msgstr "غرب"
 
-#: ../data/minbar.glade.in.h:6
+#: ../src/main.c:1546
+msgid "Minbar Website"
+msgstr "موقع منبر على الوِب"
+
+#: ../src/main.c:1665
+msgid "Failed to load the Locations XML database.  Please report this as a bug."
+msgstr "فشل تحميل قاعدة بيانات الأماكن. من فضلك أبلغ عن هذا كعلّة."
+
+#: ../data/minbar.glade.h:1
+msgid "<b>Calculation Method</b>"
+msgstr "<b>طريقة الحساب</b>"
+
+#: ../data/minbar.glade.h:2
+msgid "<b>Notifications</b>"
+msgstr "<b>التنبيهات</b>"
+
+#: ../data/minbar.glade.h:3
+msgid "<b>Options</b>"
+msgstr "<b>الخيارات</b>"
+
+#: ../data/minbar.glade.h:4
 msgid "<b>Times</b>"
-msgstr "<b>الأوقات</b>"
+msgstr "<b>المواقيت</b>"
 
-#: ../data/minbar.glade.in.h:7
+#: ../data/minbar.glade.h:5
 msgid "About"
-msgstr "حول"
+msgstr "حوْل"
 
-#: ../data/minbar.glade.in.h:8
+#: ../data/minbar.glade.h:6
 msgid "Advanced"
 msgstr "إعدادات متقدمة"
 
-#: ../data/minbar.glade.in.h:9
-msgid "Calculation error..."
-msgstr "خطأ في الحساب"
+#: ../data/minbar.glade.h:7
+msgid "Athan"
+msgstr "الأذان"
 
-#: ../data/minbar.glade.in.h:10
+#: ../data/minbar.glade.h:8
+msgid "Calculation error..."
+msgstr "خطأ في الحساب..."
+
+#: ../data/minbar.glade.h:9
+msgid "Calendar"
+msgstr "تقويم الصلاة"
+
+#: ../data/minbar.glade.h:10
+msgid "City"
+msgstr "المدينة"
+
+#: ../data/minbar.glade.h:11
 msgid "City Details"
 msgstr "تفاصيل المدينة"
 
-#: ../data/minbar.glade.in.h:11
+#: ../data/minbar.glade.h:12
 msgid "City name:"
 msgstr "اسم المدينة:"
 
-#: ../data/minbar.glade.in.h:12
-msgid "Copyright (c) 2006 Djihed Afifi <djihed@gmail.com>"
-msgstr "جميع الحقوق محفوظة © 2006 جهاد عفيفي <djihed@gmail.com>"
+#: ../data/minbar.glade.h:13
+msgid "Copyright (c) 2006, 2007 Djihed Afifi <djihed@gmail.com>"
+msgstr "جميع الحقوق محفوظة © 2006، 2007 جهاد عفيفي <djihed@gmail.com>"
 
-#: ../data/minbar.glade.in.h:13
+#: ../data/minbar.glade.h:14
 msgid "Current date printing error"
 msgstr "خطأ في كتابة التاريخ"
 
-#: ../data/minbar.glade.in.h:14
+#: ../data/minbar.glade.h:15
 msgid "Edit City Details"
-msgstr "تحرير تفاصيل المدينة"
+msgstr "حرِّر تفاصيل المدينة"
 
-#: ../data/minbar.glade.in.h:15
+#: ../data/minbar.glade.h:16
 msgid ""
 "Egyptian General Authority of Survey\n"
 "University of Islamic Sciences, Karachi (Shaf'i)\n"
@@ -215,22 +296,34 @@ msgstr ""
 "جامعة العلوم الإسلامية - كراتشي (حنفي)\n"
 "الجمعية الإسلامية لشمال أمريكا\n"
 "رابطة العالم الإسلامي\n"
-"تقويم أم القرى، العربية السعودية\n"
+"تقويم أم القرى، السعودية\n"
 "فاصل عشاء ثابت (دائما 90)"
 
-#: ../data/minbar.glade.in.h:22
+#: ../data/minbar.glade.h:23
+msgid "Find City"
+msgstr "ابحث عن المدينة"
+
+#: ../data/minbar.glade.h:24
+msgid "If you cannot find your location, please go to www.islamicfinder.org to search for it."
+msgstr "إذا لم تعثر على مكانك، من فضلك اذهب إلى www.islamicfinder.org وابحث عنه."
+
+#: ../data/minbar.glade.h:25
 msgid "Latitude:"
 msgstr "دائرة العرض:"
 
-#: ../data/minbar.glade.in.h:23
+#: ../data/minbar.glade.h:26
+msgid "Location"
+msgstr "المكان"
+
+#: ../data/minbar.glade.h:27
 msgid "Longitude:"
 msgstr "خط الطول:"
 
-#: ../data/minbar.glade.in.h:24
-msgid "Manchester, UK"
-msgstr "مانشستر"
+#: ../data/minbar.glade.h:28
+msgid "Minbar Prayer Calendar"
+msgstr "تقويم الصّلاة «منبر»"
 
-#: ../data/minbar.glade.in.h:25
+#: ../data/minbar.glade.h:29
 msgid ""
 "Minbar Prayer Times is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
 "\n"
@@ -238,97 +331,179 @@ msgid ""
 "\n"
 "You should have received a copy of the GNU General Public License along with Minbar Prayer Times; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA"
 msgstr ""
-"أوقات الصلاة منبر برنامج حر؛ بامكانك إعادة توزيعه أو تعديله تحت شروط الرخصة العمومية العامة لجنو والتي نشرتها منظمة البرمجيات الحرة؛ سواء الإصدارة 2 من الرخصة أو أي إصدارة بعدها حسب رغبتك.\n"
+"مواقيت الصلاة «منبر» برنامج حر؛ بإمكانك إعادة توزيعه أو تعديله تحت شروط الرخصة العمومية العامة لجنو والتي نشرتها منظمة البرمجيات الحرة؛ سواء الإصدارة 2 من الرخصة أو أي إصدارة بعدها حسب رغبتك.\n"
 "\n"
-"يوزّع برنامج أوقات الصلاة منبر على أمل أن يكون مفيدًا لمن يستخدمه دون أدنى مسؤولية؛ ولا حتى أي ضمان يضمن صلاحية العرض في السوق أو توافقه مع أي استخدام محدد. يمكنك مراجعة الرخصة العمومية العامة لجنو لمزيد من التفاصيل.\n"
+"يوزّع برنامج مواقيت الصلاة «منبر» على أمل أن يكون مفيدًا لمن يستخدمه دون أدنى مسؤولية؛ ولا حتى أي ضمان يضمن صلاحية العرض في السوق أو توافقه مع أي استخدام محدد. يمكنك مراجعة الرخصة العمومية العامة لجنو لمزيد من التفاصيل.\n"
 "\n"
-"من المفترض أن تكون قد استلمت نسخة من رخصة جنو العامة مع هذا البرنامج؛ في حال عدم استلامك لذلك، يمكنك مكاتبة: Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA."
+"من المفترض أن تكون قد استلمت نسخة من رخصة جنو العامة مع هذا البرنامج؛ في حال عدم استلامك لذلك، يمكنك مكاتبة:\n"
+"Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA."
 
-#: ../data/minbar.glade.in.h:30
+#: ../data/minbar.glade.h:34
+msgid "Normal Athan:"
+msgstr "الأذان العادي:"
+
+#: ../data/minbar.glade.h:35
 msgid "Notifications"
-msgstr "استخدام أصوات التَّبليغ"
+msgstr "التنبيهات"
 
-#: ../data/minbar.glade.in.h:31
+#: ../data/minbar.glade.h:36
+#: ../data/minbar.schemas.in.in.h:9
 msgid "Play Athan"
-msgstr "الأذان"
+msgstr "أذِّن"
 
-#: ../data/minbar.glade.in.h:32
-msgid ""
-"Please go to www.islamicfinder.org to\n"
-" find your city details."
-msgstr ""
-"يمكنك البحث عن تفاصيل مدينتك\n"
-"في www.islamicfinder.org"
+#: ../data/minbar.glade.h:37
+msgid "Prayer Calendar"
+msgstr "تقويم الصلاة"
 
-#: ../data/minbar.glade.in.h:34
+#: ../data/minbar.glade.h:38
 msgid "Prayer Times"
-msgstr "أوقات الصّلاة"
+msgstr "مواقيت الصّلاة"
 
-#: ../data/minbar.glade.in.h:35
+#: ../data/minbar.glade.h:39
 msgid "Prayer Times on your Desktop"
-msgstr "أوقات الصلات على مكتبك"
+msgstr "مواقيت الصلاة على مكتبك"
 
-#: ../data/minbar.glade.in.h:36
+#: ../data/minbar.glade.h:40
+msgid "Preferences"
+msgstr "التفضيلات"
+
+#: ../data/minbar.glade.h:41
+msgid "Quit"
+msgstr "أغلق"
+
+#: ../data/minbar.glade.h:42
 msgid "Select Athan File"
-msgstr "اختيار ملف الآذان"
+msgstr "اختر ملف الأذان"
 
-#: ../data/minbar.glade.in.h:37
+#: ../data/minbar.glade.h:43
 msgid "Show/Hide"
-msgstr "إظهار\\إخفاء"
+msgstr "أظهر\\اخفِ"
 
-#: ../data/minbar.glade.in.h:38
+#: ../data/minbar.glade.h:44
+#: ../data/minbar.schemas.in.in.h:11
+msgid "Start minimised to tray."
+msgstr "ابدأ بدون إظهار النافذة الرئيسة."
+
+#: ../data/minbar.glade.h:45
 msgid "Stop Athan"
-msgstr "اوقف الأذان"
+msgstr "أوقف الأذان"
 
-#: ../data/minbar.glade.in.h:39
+#: ../data/minbar.glade.h:46
+msgid "Subh Athan:"
+msgstr "أذان الصبح:"
+
+#: ../data/minbar.glade.h:47
 msgid "Time Zone:"
 msgstr "المنطقة الزمنية:"
 
-#: ../data/minbar.glade.in.h:40
-msgid "Website"
-msgstr "الموقع"
+#: ../data/minbar.glade.h:48
+msgid "Timetable"
+msgstr "جدول المواقيت"
 
-#: ../data/minbar.glade.in.h:41
+#: ../data/minbar.glade.h:49
+msgid "Today"
+msgstr "اليوم"
+
+#: ../data/minbar.glade.h:50
 msgid "Yes, notify before:"
 msgstr "نعم، نبهني قبل:"
 
-#: ../data/minbar.glade.in.h:42
+#: ../data/minbar.glade.h:51
+msgid "_Choose a location:"
+msgstr "ا_ختر مكانا:"
+
+#: ../data/minbar.glade.h:52
+msgid "_Find Next"
+msgstr "اب_حث عن التالي"
+
+#: ../data/minbar.glade.h:53
+msgid "_Search:"
+msgstr "ا_بحث:"
+
+#: ../data/minbar.glade.h:54
+msgid "gtk-apply"
+msgstr "gtk-apply"
+
+#: ../data/minbar.glade.h:55
+msgid "gtk-cancel"
+msgstr "gtk-cancel"
+
+#: ../data/minbar.glade.h:56
+msgid "gtk-close"
+msgstr "gtk-close"
+
+#: ../data/minbar.glade.h:57
+msgid "gtk-media-play"
+msgstr "gtk-media-play"
+
+#: ../data/minbar.glade.h:58
+msgid "gtk-media-stop"
+msgstr "gtk-media-stop"
+
+#: ../data/minbar.glade.h:59
+msgid "gtk-preferences"
+msgstr "gtk-preferences"
+
+#: ../data/minbar.glade.h:60
 msgid "minbar was not built with notifications support."
-msgstr "لم يتم بناء برنامج أوقات الصلاة بدعم التنبيهات."
+msgstr "لم يتم بناء «منبر» بدعم التنبيهات."
+
+#: ../data/minbar.glade.h:61
+msgid "minutes"
+msgstr "دقائق"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../data/minbar.glade.in.h:44
+#: ../data/minbar.glade.h:63
 msgid "translator-credits"
-msgstr "عبد الرحيم قيطوني <a.kitouni@gmail.com>"
+msgstr ""
+"عبد الرحيم قيطوني\t<a.kitouni@gmail.com>\n"
+"خالد حسني\t<khaledhosny@eglug.org>"
 
-#~ msgid "Gnome Prayer Times"
-#~ msgstr "أوقات الصّلاة"
-#~ msgid "Islamic prayer times."
-#~ msgstr "أوقات الصّلاة"
-#~ msgid "%sIt is prayer time. %s.%s"
-#~ msgstr "%sحان وقت الصلاة%s.%s"
-#~ msgid ""
-#~ "%sApproximatly %d minutes\n"
-#~ "until next prayer: %s.%s"
-#~ msgstr ""
-#~ "%sبقي تقريبا %d  دقائق\n"
-#~ "للصلاة المقبلة: %s.%s"
-#~ msgid ""
-#~ "%sApproximatly %d hours and %d minutes\n"
-#~ "until next prayer: %s.%s"
-#~ msgstr ""
-#~ "%sبقي تقريبا %d ساعات و %d دقائق\n"
-#~ "للصلاة المقبلة: %s.%s"
-#~ msgid "<b>Asr:</b>"
-#~ msgstr "<b>العصر:</b>"
-#~ msgid "<b>Duhr:</b>"
-#~ msgstr "<b>الظهر:</b>"
-#~ msgid "<b>Isha'a:</b>"
-#~ msgstr "<b>العشاء:</b>"
-#~ msgid "<b>Maghreb:</b>"
-#~ msgstr "<b>المغرب:</b>"
-#~ msgid "<b>Subh:</b>"
-#~ msgstr "<b>الصبح:</b>"
-#~ msgid "<b>Sunrise:</b>"
-#~ msgstr "<b>الشروق:</b>"
+#: ../data/minbar.schemas.in.in.h:1
+msgid "Calculation method"
+msgstr "طريقة الحساب"
+
+#: ../data/minbar.schemas.in.in.h:2
+msgid "Height of city"
+msgstr "ارتفاع المدينة"
+
+#: ../data/minbar.schemas.in.in.h:3
+msgid "Latitude of city"
+msgstr "دائرة العرض"
+
+#: ../data/minbar.schemas.in.in.h:4
+msgid "Longitude of city"
+msgstr "خط الطول"
+
+#: ../data/minbar.schemas.in.in.h:5
+msgid "Name of city"
+msgstr "اسم المدينة"
+
+#: ../data/minbar.schemas.in.in.h:6
+msgid "Notification period"
+msgstr "مدة التنبيه"
+
+#: ../data/minbar.schemas.in.in.h:7
+msgid "Path to Subh athan file."
+msgstr "مسار ملف أذان الصبح"
+
+#: ../data/minbar.schemas.in.in.h:8
+msgid "Path to athan file."
+msgstr "مسار ملف الأذان."
+
+#: ../data/minbar.schemas.in.in.h:10
+msgid "Set to true to close when clicking the close button instead of hiding."
+msgstr "اضبطه لصحيح ليغلق البرنامج عند نقر \"أغلق\" بدلا من إخفائه."
+
+#: ../data/minbar.schemas.in.in.h:12
+msgid "Time Zone, difference from GMT"
+msgstr "المنطقة الزمنية، الفرق عن جرينتش"
+
+#: ../data/minbar.schemas.in.in.h:13
+msgid "Whether or not to notify"
+msgstr "نبه أم لا"
+
+#: ../minbar.desktop.in.h:1
+msgid "Islamic prayer times"
+msgstr "مواقيت الصّلاة"
 
