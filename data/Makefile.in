@@ -37,14 +37,15 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = data
-DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/minbar.glade.in
+DIST_COMMON = $(dist_pkgdata_DATA) $(srcdir)/Makefile.am \
+	$(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_CLEAN_FILES = minbar.glade
+CONFIG_CLEAN_FILES =
 SOURCES =
 DIST_SOURCES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
@@ -53,9 +54,10 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(schemadir)"
-schemaDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(schema_DATA)
+am__installdirs = "$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(schemasdir)"
+dist_pkgdataDATA_INSTALL = $(INSTALL_DATA)
+schemasDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(dist_pkgdata_DATA) $(schemas_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 ACLOCAL_AMFLAGS = @ACLOCAL_AMFLAGS@
@@ -63,11 +65,7 @@ ALL_LINGUAS = @ALL_LINGUAS@
 AMDEP_FALSE = @AMDEP_FALSE@
 AMDEP_TRUE = @AMDEP_TRUE@
 AMTAR = @AMTAR@
-AM_CFLAGS = @AM_CFLAGS@
-AM_CPPFLAGS = @AM_CPPFLAGS@
-AM_CXXFLAGS = @AM_CXXFLAGS@
-AM_LDFLAGS = @AM_LDFLAGS@
-AR = @AR@
+ATHANDIR = @ATHANDIR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -79,23 +77,18 @@ CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
-CXX = @CXX@
-CXXCPP = @CXXCPP@
-CXXDEPMODE = @CXXDEPMODE@
-CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DATADIRNAME = @DATADIRNAME@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DISABLE_DEPRECATED = @DISABLE_DEPRECATED@
-ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
-F77 = @F77@
-FFLAGS = @FFLAGS@
+GCONF_CFLAGS = @GCONF_CFLAGS@
+GCONF_LIBS = @GCONF_LIBS@
 GCONF_SCHEMAS_INSTALL_FALSE = @GCONF_SCHEMAS_INSTALL_FALSE@
 GCONF_SCHEMAS_INSTALL_TRUE = @GCONF_SCHEMAS_INSTALL_TRUE@
 GCONF_SCHEMA_CONFIG_SOURCE = @GCONF_SCHEMA_CONFIG_SOURCE@
@@ -114,14 +107,12 @@ INTLTOOL_CAVES_RULE = @INTLTOOL_CAVES_RULE@
 INTLTOOL_DESKTOP_RULE = @INTLTOOL_DESKTOP_RULE@
 INTLTOOL_DIRECTORY_RULE = @INTLTOOL_DIRECTORY_RULE@
 INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
-INTLTOOL_ICONV = @INTLTOOL_ICONV@
 INTLTOOL_KBD_RULE = @INTLTOOL_KBD_RULE@
 INTLTOOL_KEYS_RULE = @INTLTOOL_KEYS_RULE@
 INTLTOOL_MERGE = @INTLTOOL_MERGE@
-INTLTOOL_MSGFMT = @INTLTOOL_MSGFMT@
-INTLTOOL_MSGMERGE = @INTLTOOL_MSGMERGE@
 INTLTOOL_OAF_RULE = @INTLTOOL_OAF_RULE@
 INTLTOOL_PERL = @INTLTOOL_PERL@
+INTLTOOL_POLICY_RULE = @INTLTOOL_POLICY_RULE@
 INTLTOOL_PONG_RULE = @INTLTOOL_PONG_RULE@
 INTLTOOL_PROP_RULE = @INTLTOOL_PROP_RULE@
 INTLTOOL_SCHEMAS_RULE = @INTLTOOL_SCHEMAS_RULE@
@@ -133,24 +124,25 @@ INTLTOOL_THEME_RULE = @INTLTOOL_THEME_RULE@
 INTLTOOL_UI_RULE = @INTLTOOL_UI_RULE@
 INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
 INTLTOOL_XAM_RULE = @INTLTOOL_XAM_RULE@
-INTLTOOL_XGETTEXT = @INTLTOOL_XGETTEXT@
 INTLTOOL_XML_NOMERGE_RULE = @INTLTOOL_XML_NOMERGE_RULE@
 INTLTOOL_XML_RULE = @INTLTOOL_XML_RULE@
 ITL_LIBS = @ITL_LIBS@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
-LIBTOOL = @LIBTOOL@
-LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAINTAINER_MODE_FALSE = @MAINTAINER_MODE_FALSE@
 MAINTAINER_MODE_TRUE = @MAINTAINER_MODE_TRUE@
 MAKEINFO = @MAKEINFO@
+MAKKAH_LAT = @MAKKAH_LAT@
+MAKKAH_LON = @MAKKAH_LON@
 MINBAR_CFLAGS = @MINBAR_CFLAGS@
 MINBAR_LIBS = @MINBAR_LIBS@
 MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
+MSGFMT_OPTS = @MSGFMT_OPTS@
+MSGMERGE = @MSGMERGE@
 NOTIFY_CFLAGS = @NOTIFY_CFLAGS@
 NOTIFY_LIBS = @NOTIFY_LIBS@
 OBJEXT = @OBJEXT@
@@ -166,11 +158,12 @@ POFILES = @POFILES@
 POSUB = @POSUB@
 PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
 PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
-RANLIB = @RANLIB@
 SCROLLKEEPER_CONFIG = @SCROLLKEEPER_CONFIG@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
+USE_GCONF_FALSE = @USE_GCONF_FALSE@
+USE_GCONF_TRUE = @USE_GCONF_TRUE@
 USE_NLS = @USE_NLS@
 USE_NOTIFY_FALSE = @USE_NOTIFY_FALSE@
 USE_NOTIFY_TRUE = @USE_NOTIFY_TRUE@
@@ -178,12 +171,8 @@ VERSION = @VERSION@
 WARN_CFLAGS = @WARN_CFLAGS@
 XGETTEXT = @XGETTEXT@
 ac_ct_CC = @ac_ct_CC@
-ac_ct_CXX = @ac_ct_CXX@
-ac_ct_F77 = @ac_ct_F77@
 am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
 am__fastdepCC_TRUE = @am__fastdepCC_TRUE@
-am__fastdepCXX_FALSE = @am__fastdepCXX_FALSE@
-am__fastdepCXX_TRUE = @am__fastdepCXX_TRUE@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -195,6 +184,7 @@ build_alias = @build_alias@
 build_cpu = @build_cpu@
 build_os = @build_os@
 build_vendor = @build_vendor@
+data = @data@
 datadir = @datadir@
 datarootdir = @datarootdir@
 docdir = @docdir@
@@ -224,9 +214,16 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-EXTRA_DIST = athan.ogg minbar.glade minbar.schemas
-schemadir = @GCONF_SCHEMA_FILE_DIR@
-schema_DATA = minbar.schemas
+dist_pkgdata_DATA = athan.ogg minbar.glade Locations.xml
+@USE_GCONF_TRUE@schemasdir = $(GCONF_SCHEMA_FILE_DIR)
+@USE_GCONF_TRUE@schemas_in_files = minbar.schemas.in
+@USE_GCONF_TRUE@schemas_DATA = $(schemas_in_files:.schemas.in=.schemas)
+EXTRA_DIST = \
+	$(schemas_in_files)				\
+	$(schemas_DATA)					\
+	minbar.schemas.in.in				\
+	$(NULL)
+
 all: all-am
 
 .SUFFIXES:
@@ -259,34 +256,40 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-minbar.glade: $(top_builddir)/config.status $(srcdir)/minbar.glade.in
-	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
-
-mostlyclean-libtool:
-	-rm -f *.lo
-
-clean-libtool:
-	-rm -rf .libs _libs
-
-distclean-libtool:
-	-rm -f libtool
 uninstall-info-am:
-install-schemaDATA: $(schema_DATA)
+install-dist_pkgdataDATA: $(dist_pkgdata_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(schemadir)" || $(mkdir_p) "$(DESTDIR)$(schemadir)"
-	@list='$(schema_DATA)'; for p in $$list; do \
+	test -z "$(pkgdatadir)" || $(mkdir_p) "$(DESTDIR)$(pkgdatadir)"
+	@list='$(dist_pkgdata_DATA)'; for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  f=$(am__strip_dir) \
-	  echo " $(schemaDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(schemadir)/$$f'"; \
-	  $(schemaDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(schemadir)/$$f"; \
+	  echo " $(dist_pkgdataDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(pkgdatadir)/$$f'"; \
+	  $(dist_pkgdataDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(pkgdatadir)/$$f"; \
 	done
 
-uninstall-schemaDATA:
+uninstall-dist_pkgdataDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(schema_DATA)'; for p in $$list; do \
+	@list='$(dist_pkgdata_DATA)'; for p in $$list; do \
 	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(schemadir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(schemadir)/$$f"; \
+	  echo " rm -f '$(DESTDIR)$(pkgdatadir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(pkgdatadir)/$$f"; \
+	done
+install-schemasDATA: $(schemas_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(schemasdir)" || $(mkdir_p) "$(DESTDIR)$(schemasdir)"
+	@list='$(schemas_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(schemasDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(schemasdir)/$$f'"; \
+	  $(schemasDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(schemasdir)/$$f"; \
+	done
+
+uninstall-schemasDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(schemas_DATA)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(schemasdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(schemasdir)/$$f"; \
 	done
 tags: TAGS
 TAGS:
@@ -326,7 +329,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(schemadir)"; do \
+	for dir in "$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(schemasdir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -353,13 +356,15 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
+@USE_GCONF_FALSE@uninstall-local:
+@USE_GCONF_FALSE@install-data-local:
 clean: clean-am
 
-clean-am: clean-generic clean-libtool mostlyclean-am
+clean-am: clean-generic mostlyclean-am
 
 distclean: distclean-am
 	-rm -f Makefile
-distclean-am: clean-am distclean-generic distclean-libtool
+distclean-am: clean-am distclean-generic
 
 dvi: dvi-am
 
@@ -371,7 +376,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-data-local install-schemaDATA
+install-data-am: install-data-local install-dist_pkgdataDATA \
+	install-schemasDATA
 
 install-exec-am:
 
@@ -387,7 +393,7 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-generic mostlyclean-libtool
+mostlyclean-am: mostlyclean-generic
 
 pdf: pdf-am
 
@@ -397,25 +403,34 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-info-am uninstall-schemaDATA
+uninstall-am: uninstall-dist_pkgdataDATA uninstall-info-am \
+	uninstall-local uninstall-schemasDATA
 
-.PHONY: all all-am check check-am clean clean-generic clean-libtool \
-	distclean distclean-generic distclean-libtool distdir dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-data-local install-exec \
+.PHONY: all all-am check check-am clean clean-generic distclean \
+	distclean-generic distdir dvi dvi-am html html-am info info-am \
+	install install-am install-data install-data-am \
+	install-data-local install-dist_pkgdataDATA install-exec \
 	install-exec-am install-info install-info-am install-man \
-	install-schemaDATA install-strip installcheck installcheck-am \
+	install-schemasDATA install-strip installcheck installcheck-am \
 	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic mostlyclean-libtool pdf pdf-am \
-	ps ps-am uninstall uninstall-am uninstall-info-am \
-	uninstall-schemaDATA
+	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am uninstall \
+	uninstall-am uninstall-dist_pkgdataDATA uninstall-info-am \
+	uninstall-local uninstall-schemasDATA
 
 
-install-data-local:
-	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)$(datadir)/$(PACKAGE)
-	$(INSTALL_DATA) athan.ogg minbar.glade $(DESTDIR)$(datadir)/$(PACKAGE)
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) gconftool-2 --makefile-install-rule $(schema_DATA)
+@USE_GCONF_TRUE@@INTLTOOL_SCHEMAS_RULE@
+
+@USE_GCONF_TRUE@minbar.schemas.in: $(srcdir)/minbar.schemas.in.in
+@USE_GCONF_TRUE@	 sed     -e 's,[@]datadir[@],$(datadir),g' \
+@USE_GCONF_TRUE@		-e 's,[@]PACKAGE[@],$(PACKAGE),g' \
+@USE_GCONF_TRUE@	 <$(srcdir)/minbar.schemas.in.in >minbar.schemas.in
+
+@USE_GCONF_TRUE@install-data-local:
+@USE_GCONF_TRUE@	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) gconftool-2 --makefile-install-rule  minbar.schemas 2>&1 > /dev/null
+@USE_GCONF_TRUE@	gconftool-2 --shutdown
+
+@USE_GCONF_TRUE@uninstall-local:
+@USE_GCONF_TRUE@	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) gconftool-2 --makefile-uninstall-rule minbar.schemas
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
