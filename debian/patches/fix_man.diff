@@ -1,0 +1,24 @@
+Index: minbar-0.2.1/doc/minbar.1
+===================================================================
+--- minbar-0.2.1.orig/doc/minbar.1	2009-08-07 16:47:14.000000000 +0200
++++ minbar-0.2.1/doc/minbar.1	2009-08-07 16:47:55.000000000 +0200
+@@ -2,7 +2,9 @@
+ .SH NAME
+ Minbar - Gnome Prayer Times
+ .SH SYNOPSIS
+-.Beminbar [OPTIONS]
++.B
++.I minbar
++[OPTIONS]
+ .SH DESCRIPTION
+ .I minbar
+ is a Gnome Islamic prayer times application. At first start, you have to configure it with your location, time zone and madhab details. 
+@@ -10,7 +12,7 @@
+ .SH OPTIONS
+ Help options
+ .TP
+--?, \fB\-\-help\fR
++\fB\-?\fR, \fB\-\-help\fR
+ Show help options
+ .PP
+ Application options

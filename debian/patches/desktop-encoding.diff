@@ -1,0 +1,10 @@
+Index: minbar-0.2.1/minbar.desktop.in
+===================================================================
+--- minbar-0.2.1.orig/minbar.desktop.in	2009-08-07 16:56:20.000000000 +0200
++++ minbar-0.2.1/minbar.desktop.in	2009-08-07 16:56:23.000000000 +0200
+@@ -1,5 +1,4 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ _Name=Minbar Prayer Times
+ _Comment=Islamic prayer times
+ Exec=minbar

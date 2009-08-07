@@ -1,0 +1,13 @@
+Index: minbar-0.2.1/src/main.c
+===================================================================
+--- minbar-0.2.1.orig/src/main.c	2009-08-07 16:08:56.000000000 +0200
++++ minbar-0.2.1/src/main.c	2009-08-07 16:09:02.000000000 +0200
+@@ -1250,7 +1250,7 @@
+ 	notify_notification_update(notification,
+ 				program_name,
+ 				message,
+-				GTK_STOCK_ABOUT);
++				"minbar");
+ 	notify_notification_show(notification, NULL);
+ }
+ 

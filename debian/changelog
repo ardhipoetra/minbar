@@ -1,3 +1,16 @@
+minbar (0.2.1-5) unstable; urgency=low
+
+  * Split package to create a minbar-data package.
+  * Backport fixes from upstream:
+     + set minbar's icon as notification icon. (Closes: #528451)
+     + support the new sound architecture. (Closes: #527282)
+     + fix manpage.
+     + no need for mentioning Encoding in .desktop files.
+  * Bump debhelper compatibility to 7.
+  * Bump Standards-Version to 3.8.2.
+
+ -- Mohammed Adnène Trojette <adn+deb@diwi.org>  Fri, 07 Aug 2009 16:11:49 +0200
+
 minbar (0.2.1-4) unstable; urgency=low
 
   * Remove reference to a removed patch in debian/patches/series.
