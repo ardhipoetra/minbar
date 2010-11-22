@@ -1,3 +1,9 @@
+minbar (0.2.1-5ubuntu2) natty; urgency=low
+
+  * Updated maintainer
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Mon, 22 Nov 2010 08:26:29 +0200
+
 minbar (0.2.1-5ubuntu1) natty; urgency=low
 
   * Added desktop-islamic-category.diff patch to add X-Islamic-Software 
