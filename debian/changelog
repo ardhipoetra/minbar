@@ -1,3 +1,13 @@
+minbar (0.2.1-5ubuntu1) natty; urgency=low
+
+  * Added desktop-islamic-category.diff patch to add X-Islamic-Software 
+    category to .desktop file. (LP: #498620)
+  * debian/control: Added "Recommends: islamic-menus" for minbar.
+  * debian/minbar-data.install: Added etc/ (LP: #498902)
+  * debian/patches/fix-Makefile.diff: Also patch Makefile.in
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Mon, 22 Nov 2010 08:09:41 +0200
+
 minbar (0.2.1-5) unstable; urgency=low
 
   * Split package to create a minbar-data package.

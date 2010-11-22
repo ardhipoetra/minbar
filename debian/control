@@ -8,6 +8,7 @@ Standards-Version: 3.8.2
 Package: minbar
 Architecture: any
 Depends: minbar-data, ${shlibs:Depends}, ${misc:Depends}
+Recommends: islamic-menus
 Description: GNOME Islamic prayer times application
  Minbar is an Islamic prayer times application on top of libitl,
  the Arabeyes prayer calculation library.
