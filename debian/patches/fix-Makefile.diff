@@ -1,7 +1,7 @@
 Index: minbar-0.2.1/data/Makefile.am
 ===================================================================
---- minbar-0.2.1.orig/data/Makefile.am	2009-08-07 17:47:06.000000000 +0200
-+++ minbar-0.2.1/data/Makefile.am	2009-08-07 17:48:12.000000000 +0200
+--- minbar-0.2.1.orig/data/Makefile.am	2007-12-23 17:58:00.000000000 +0100
++++ minbar-0.2.1/data/Makefile.am	2011-08-03 00:17:59.000000000 +0200
 @@ -22,12 +22,14 @@
  
  endif
@@ -20,27 +20,25 @@ Index: minbar-0.2.1/data/Makefile.am
  
  
  ## End Makefile.am
---- minbar-0.2.1.orig/data/Makefile.in
-+++ minbar-0.2.1/data/Makefile.in
-@@ -219,11 +219,15 @@
+Index: minbar-0.2.1/data/Makefile.in
+===================================================================
+--- minbar-0.2.1.orig/data/Makefile.in	2007-12-23 17:59:04.000000000 +0100
++++ minbar-0.2.1/data/Makefile.in	2011-08-03 00:18:17.000000000 +0200
+@@ -219,9 +219,12 @@
  @USE_GCONF_TRUE@schemas_in_files = minbar.schemas.in
  @USE_GCONF_TRUE@schemas_DATA = $(schemas_in_files:.schemas.in=.schemas)
  EXTRA_DIST = \
--	$(schemas_in_files)				\
--	$(schemas_DATA)					\
- 	minbar.schemas.in.in				\
- 	$(NULL)
- 
-+CLEANFILES = \
-+	$(schemas_DATA)					\
-+	$(schemas_in_files)				\
-+	minbar.schemas.in				\
++	minbar.schemas.in.in				\
 +	$(NULL)
 +
- all: all-am
++CLEANFILES = \
+ 	$(schemas_in_files)				\
+ 	$(schemas_DATA)					\
+-	minbar.schemas.in.in				\
+ 	$(NULL)
  
- .SUFFIXES:
-@@ -349,6 +353,7 @@
+ all: all-am
+@@ -349,6 +352,7 @@
  mostlyclean-generic:
  
  clean-generic:

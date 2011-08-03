@@ -1,18 +1,16 @@
-minbar (0.2.1-5ubuntu2) natty; urgency=low
+minbar (0.2.1-6) unstable; urgency=low
 
-  * Updated maintainer
+  * Install schema file. Adapted patch courtesy of Ahmed El-Mahmoudy.
+    (Closes: #561935)
+  * Transition to libnotify 0.7. Patch courtesy of Ahmed El-Mahmoudy.
+    (Closes: #630291)
+  * Improve desktop integration with other Islamic applications.
+    Patch courtesy of Ahmed El-Mahmoudy: (Closes: #632808)
+     + add islamic-menus to Recommends.
+     + add X-Islamic-Software to desktop file.
+  * Fix sound file path in minbar.schema.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Mon, 22 Nov 2010 08:26:29 +0200
-
-minbar (0.2.1-5ubuntu1) natty; urgency=low
-
-  * Added desktop-islamic-category.diff patch to add X-Islamic-Software 
-    category to .desktop file. (LP: #498620)
-  * debian/control: Added "Recommends: islamic-menus" for minbar.
-  * debian/minbar-data.install: Added etc/ (LP: #498902)
-  * debian/patches/fix-Makefile.diff: Also patch Makefile.in
-
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Mon, 22 Nov 2010 08:09:41 +0200
+ -- Mohammed Adnène Trojette <adn+deb@diwi.org>  Wed, 03 Aug 2011 00:20:21 +0200
 
 minbar (0.2.1-5) unstable; urgency=low
 

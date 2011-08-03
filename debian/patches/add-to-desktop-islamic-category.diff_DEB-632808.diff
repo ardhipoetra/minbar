@@ -1,0 +1,10 @@
+Index: minbar-0.2.1/minbar.desktop.in
+===================================================================
+--- minbar-0.2.1.orig/minbar.desktop.in	2011-08-02 23:37:00.000000000 +0200
++++ minbar-0.2.1/minbar.desktop.in	2011-08-02 23:37:14.000000000 +0200
+@@ -6,4 +6,4 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Utility;Utility;
++Categories=X-Islamic-Software;GNOME;GTK;Utility;Utility;

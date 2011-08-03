@@ -1,8 +1,0 @@
---- a/minbar.desktop.in
-+++ b/minbar.desktop.in
-@@ -6,4 +6,4 @@
- Terminal=false
- Type=Application
- StartupNotify=true
--Categories=GNOME;GTK;Utility;Utility;
-+Categories=X-Islamic-Software;GNOME;GTK;Utility;Utility;

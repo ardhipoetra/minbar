@@ -1,0 +1,18 @@
+Index: minbar-0.2.1/src/main.c
+===================================================================
+--- minbar-0.2.1.orig/src/main.c	2011-08-02 23:34:56.000000000 +0200
++++ minbar-0.2.1/src/main.c	2011-08-02 23:36:12.000000000 +0200
+@@ -1239,9 +1239,13 @@
+ 	notification = notify_notification_new
+                                             (program_name,
+                                              NULL,
++#if !defined(NOTIFY_VERSION_MINOR) || (NOTIFY_VERSION_MAJOR == 0 && NOTIFY_VERSION_MINOR < 7)
+                                              NULL,
+ 					     NULL);
+ 	notify_notification_attach_to_status_icon (notification, status_icon );
++#else
++                                             NULL);
++#endif
+ 	notify_notification_set_timeout (notification, 8000);
+ }
+ #endif

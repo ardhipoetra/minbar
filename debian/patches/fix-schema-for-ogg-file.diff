@@ -1,0 +1,44 @@
+Index: minbar-0.2.1/data/minbar.schemas
+===================================================================
+--- minbar-0.2.1.orig/data/minbar.schemas	2011-08-03 00:19:31.000000000 +0200
++++ minbar-0.2.1/data/minbar.schemas	2011-08-03 00:19:55.000000000 +0200
+@@ -617,7 +617,7 @@
+ 	<applyto>/apps/minbar/athan/normal</applyto>
+         <owner>minbar</owner>
+         <type>string</type>
+-	<default>/usr/local/share/minbar/athan.ogg</default>
++	<default>/usr/share/minbar/athan.ogg</default>
+         <locale name="C">
+           <short>Path to athan file.</short>
+         </locale>
+@@ -672,7 +672,7 @@
+ 	<applyto>/apps/minbar/athan/subh</applyto>
+         <owner>minbar</owner>
+         <type>string</type>
+-	<default>/usr/local/share/minbar/athan.ogg</default>
++	<default>/usr/share/minbar/athan.ogg</default>
+         <locale name="C">
+           <short>Path to Subh athan file.</short>
+         </locale>
+Index: minbar-0.2.1/data/minbar.schemas.in
+===================================================================
+--- minbar-0.2.1.orig/data/minbar.schemas.in	2011-08-03 00:19:31.000000000 +0200
++++ minbar-0.2.1/data/minbar.schemas.in	2011-08-03 00:20:09.000000000 +0200
+@@ -129,7 +129,7 @@
+ 	<applyto>/apps/minbar/athan/normal</applyto>
+         <owner>minbar</owner>
+         <type>string</type>
+-	<default>/usr/local/share/minbar/athan.ogg</default>
++	<default>/usr/share/minbar/athan.ogg</default>
+         <locale name="C">
+           <short>Path to athan file.</short>
+         </locale>
+@@ -140,7 +140,7 @@
+ 	<applyto>/apps/minbar/athan/subh</applyto>
+         <owner>minbar</owner>
+         <type>string</type>
+-	<default>/usr/local/share/minbar/athan.ogg</default>
++	<default>/usr/share/minbar/athan.ogg</default>
+         <locale name="C">
+           <short>Path to Subh athan file.</short>
+         </locale>
