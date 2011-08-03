@@ -1,0 +1,8 @@
+fix-Makefile.diff
+fix_man.diff
+desktop-encoding.diff
+notification_ARA-11250_DEB-528451.diff
+audio_ARA-10986_DEB-527282.diff
+transition-to-libnotify-0.7_DEB-630291.diff
+add-to-desktop-islamic-category.diff_DEB-632808.diff
+fix-schema-for-ogg-file.diff

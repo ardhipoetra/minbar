@@ -1,3 +1,10 @@
+minbar (0.2.1-7) unstable; urgency=low
+
+  * Switch to dpkg-source 3.0 (quilt) format.
+  * Bump Standards-Version to 3.9.2.
+
+ -- Mohammed Adnène Trojette <adn+deb@diwi.org>  Wed, 03 Aug 2011 16:26:06 +0200
+
 minbar (0.2.1-6) unstable; urgency=low
 
   * Install schema file. Adapted patch courtesy of Ahmed El-Mahmoudy.
@@ -10,7 +17,7 @@ minbar (0.2.1-6) unstable; urgency=low
      + add X-Islamic-Software to desktop file.
   * Fix sound file path in minbar.schema.
 
- -- Mohammed Adnène Trojette <adn+deb@diwi.org>  Wed, 03 Aug 2011 00:20:21 +0200
+ -- Mohammed Adnène Trojette <adn+deb@diwi.org>  Wed, 03 Aug 2011 16:22:50 +0200
 
 minbar (0.2.1-5) unstable; urgency=low
 

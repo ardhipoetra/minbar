@@ -74,7 +74,7 @@ static GKeyFile		* conffile;
 static GladeXML		* xml;
 static GError		* err 	= NULL;
 /* For gstreamer */
-static GstElement	*pipeline;
+static GstElement	*pipeline, *source, *parser, *decoder, *conv, *sink;
 static GMainLoop	*loop;
 static GstBus		*bus;
 static GtkFileFilter 	*filter_all;
@@ -1004,34 +1004,40 @@ void play_athan_callback()
 	{
 		exit(-1);
 	}
-	gchar * athanuri;
+	gchar * athanfilename; 
 	/* set filename property on the file source. Also add a message
 	 * handler. */
 
 	no_stream_errors = TRUE;
 	if(calling_athan_for == 0)
 	{
-		athanuri  = gtk_file_chooser_get_uri
+		athanfilename  = gtk_file_chooser_get_filename  
 		((GtkFileChooser *) (glade_xml_get_widget(xml, "athan_subh_chooser")));
 	}
 	else
 	{
-		athanuri  = gtk_file_chooser_get_uri
+		athanfilename  = gtk_file_chooser_get_filename  
 		((GtkFileChooser *) (glade_xml_get_widget(xml, "athan_chooser")));
 	}
-	g_object_set (G_OBJECT (pipeline), "uri", athanuri, NULL);
+	g_object_set (G_OBJECT (source), "location", athanfilename, NULL);
 
 	bus = gst_pipeline_get_bus (GST_PIPELINE (pipeline));
 	gst_bus_add_watch (bus, bus_call, loop);
 	gst_object_unref (bus);
 
+	/* put all elements in a bin */
+	gst_bin_add_many (GST_BIN (pipeline),
+		    source, parser, decoder, conv, sink, NULL);
+
+	/* link together - note that we cannot link the parser and
+	 * decoder yet, becuse the parser uses dynamic pads. For that,
+	 * we set a pad-added signal handler. */
+	gst_element_link (source, parser);
+	gst_element_link_many (decoder, conv, sink, NULL);
+	g_signal_connect (parser, "pad-added", G_CALLBACK (new_pad), NULL);
+	
 	/* Now set to playing and iterate. */
 	gst_element_set_state (pipeline, GST_STATE_PLAYING);
-	g_main_loop_run (loop);
-
-  	/* clean up nicely */
-  	gst_element_set_state (pipeline, GST_STATE_NULL);
-  	gst_object_unref (GST_OBJECT (pipeline));
 
 }
 
@@ -1064,7 +1070,6 @@ gboolean bus_call (GstBus     *bus,
 	switch (GST_MESSAGE_TYPE (msg)) {
 		case GST_MESSAGE_EOS:
 			/* End of Stream */
-			g_main_loop_quit (loop);
 			break;
 		case GST_MESSAGE_ERROR: {
 			gchar *debug;
@@ -1076,7 +1081,6 @@ gboolean bus_call (GstBus     *bus,
 			g_print (_("Error: %s\n"), err->message);
 			g_error_free (err);
 			
-			g_main_loop_quit (loop);
 			no_stream_errors= FALSE;
 			break;
 		}
@@ -1110,14 +1114,31 @@ void set_file_status(gboolean status)
 	g_free(label_status);
 }
 
+void new_pad (GstElement *element,
+	 	GstPad     *pad,
+	 	gpointer    data)
+{
+	GstPad *sinkpad;
+	/* We can now link this pad with the audio decoder */
+	sinkpad = gst_element_get_pad (decoder, "sink");
+	gst_pad_link (pad, sinkpad);
+
+	gst_object_unref (sinkpad);
+}
+
+
 
 int init_pipelines()
 {
 	/* create elements */
-	pipeline	= gst_element_factory_make ("playbin", "play");
-
-	if (!pipeline) {
-		g_print ("pipeline could not be created\n");
+	pipeline 	= gst_pipeline_new ("audio-player");
+	source 		= gst_element_factory_make ("filesrc", "file-source");
+	parser 		= gst_element_factory_make ("oggdemux", "ogg-parser");
+	decoder 	= gst_element_factory_make ("vorbisdec", "vorbis-decoder");
+	conv 		= gst_element_factory_make ("audioconvert", "converter");
+	sink 		= gst_element_factory_make ("alsasink", "alsa-output");
+	if (!pipeline || !source || !parser || !decoder || !conv || !sink) {
+		g_print ("One element could not be created\n");
 		return -1;
 	}
 	return 1;
@@ -1134,7 +1155,6 @@ void setup_file_filters (void)
 	gtk_file_filter_set_name (filter_supported,
 		_("Supported files"));
 	gtk_file_filter_add_mime_type (filter_supported, "application/ogg");
-	gtk_file_filter_add_mime_type (filter_supported, "audio/*");
 	g_object_ref (filter_supported);
 }
 
@@ -1230,7 +1250,7 @@ void show_notification(gchar * message)
 	notify_notification_update(notification,
 				program_name,
 				message,
-				"minbar");
+				GTK_STOCK_ABOUT);
 	notify_notification_show(notification, NULL);
 }
 
@@ -1239,13 +1259,9 @@ void create_notification()
 	notification = notify_notification_new
                                             (program_name,
                                              NULL,
-#if !defined(NOTIFY_VERSION_MINOR) || (NOTIFY_VERSION_MAJOR == 0 && NOTIFY_VERSION_MINOR < 7)
                                              NULL,
 					     NULL);
 	notify_notification_attach_to_status_icon (notification, status_icon );
-#else
-                                             NULL);
-#endif
 	notify_notification_set_timeout (notification, 8000);
 }
 #endif
@@ -1289,8 +1305,6 @@ int main(int argc, char *argv[])
 	
 	/* initialize GStreamer */
 	gst_init (&argc, &argv);
-	loop = g_main_loop_new (NULL, FALSE);
-
 
 	/* command line options */
 	GOptionEntry options[] = 

@@ -1239,13 +1239,9 @@ void create_notification()
 	notification = notify_notification_new
                                             (program_name,
                                              NULL,
-#if !defined(NOTIFY_VERSION_MINOR) || (NOTIFY_VERSION_MAJOR == 0 && NOTIFY_VERSION_MINOR < 7)
                                              NULL,
 					     NULL);
 	notify_notification_attach_to_status_icon (notification, status_icon );
-#else
-                                             NULL);
-#endif
 	notify_notification_set_timeout (notification, 8000);
 }
 #endif

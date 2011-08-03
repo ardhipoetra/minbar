@@ -6,4 +6,4 @@ Icon=minbar
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=X-Islamic-Software;GNOME;GTK;Utility;Utility;
+Categories=GNOME;GTK;Utility;Utility;

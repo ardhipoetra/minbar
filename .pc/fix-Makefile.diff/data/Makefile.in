@@ -219,12 +219,9 @@ dist_pkgdata_DATA = athan.ogg minbar.glade Locations.xml
 @USE_GCONF_TRUE@schemas_in_files = minbar.schemas.in
 @USE_GCONF_TRUE@schemas_DATA = $(schemas_in_files:.schemas.in=.schemas)
 EXTRA_DIST = \
-	minbar.schemas.in.in				\
-	$(NULL)
-
-CLEANFILES = \
 	$(schemas_in_files)				\
 	$(schemas_DATA)					\
+	minbar.schemas.in.in				\
 	$(NULL)
 
 all: all-am
@@ -352,7 +349,6 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
-	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
