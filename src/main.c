@@ -1551,15 +1551,16 @@ void setup_widgets()
     GtkWidget * mainwindow = glade_xml_get_widget(xml, "mainWindow");
     gtk_window_set_icon_name(GTK_WINDOW (mainwindow), "minbar");
 
-    GtkWidget * aboutd = glade_xml_get_widget(xml, "aboutdialog");
-    gtk_about_dialog_set_name((GtkAboutDialog * )aboutd, program_name);
+    GtkAboutDialog *aboutd = GTK_ABOUT_DIALOG(glade_xml_get_widget(xml, "aboutdialog"));
+    gtk_about_dialog_set_program_name(aboutd, program_name);
+    gtk_about_dialog_set_version(aboutd, VERSION);
     
-    gtk_about_dialog_set_url_hook (/*(GtkAboutDialog * )aboutd,*/ activate_url, NULL, NULL);
+    gtk_about_dialog_set_url_hook(/*(GtkAboutDialog * )aboutd,*/ activate_url, NULL, NULL);
     
-    gtk_about_dialog_set_website ((GtkAboutDialog * )aboutd, "http://djihed.com/minbar");
-    gtk_about_dialog_set_website_label ((GtkAboutDialog * )aboutd, _("Minbar Website"));
+    gtk_about_dialog_set_website(aboutd, "https://launchpad.net/minbar");
+    gtk_about_dialog_set_website_label(aboutd, _("Minbar Website"));
 
-    gtk_window_set_icon_name(GTK_WINDOW (aboutd), "minbar");
+    gtk_window_set_icon_name(GTK_WINDOW(aboutd), "minbar");
 
     const char *artists[] =
     {
