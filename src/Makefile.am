@@ -32,3 +32,7 @@ minbar_LDADD += $(GCONF_LIBS)
 minbar_CPPFLAGS += $(GCONF_CFLAGS)
 endif
 
+if USE_APP_INDICATOR
+minbar_LDADD += $(APP_INDICATOR_LIBS)
+minbar_CPPFLAGS += $(APP_INDICATOR_CFLAGS)
+endif
