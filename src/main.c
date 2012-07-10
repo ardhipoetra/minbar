@@ -94,6 +94,7 @@ static GtkStatusIcon       * status_icon;
 #endif
 #if USE_APP_INDICATOR
 static AppIndicator *app_indicator;
+void load_app_indicator(void);
 #endif
 static GDate        * currentDate;
 
@@ -1178,6 +1179,20 @@ void load_system_tray()
 }
 #endif
 
+#if USE_APP_INDICATOR
+void load_app_indicator()
+{
+    app_indicator = app_indicator_new("minbar", "minbar", APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
+    if (!app_indicator)
+    {
+        fprintf(stderr, "Could not allocate app indicator");
+        return;
+    }
+    GtkMenu* popup_menu = (GtkMenu*) glade_xml_get_widget(xml, "traypopup"); 
+    app_indicator_set_status(app_indicator, APP_INDICATOR_STATUS_ACTIVE);
+    app_indicator_set_menu(app_indicator, popup_menu);
+}
+#endif
 
 void check_quit_callback(GtkWidget *widget, gpointer data)
 {
@@ -1352,6 +1367,10 @@ int main(int argc, char *argv[])
     load_system_tray();
 #endif
         
+#if USE_APP_INDICATOR
+    load_app_indicator();
+#endif
+
     /* Initialise preferenes and variables */    
     init_prefs();
     init_vars();
