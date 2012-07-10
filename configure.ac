@@ -1,6 +1,6 @@
 
 
-AC_INIT([minbar], [0.2.1],[mailto:djihed@gmail.com],[minbar])
+AC_INIT([minbar], [0.2.2],[mailto:mhaggag@gmail.com],[minbar])
 
 AM_INIT_AUTOMAKE([1.9 foreign dist-bzip2 no-dist-gzip -Wall])
 
@@ -79,6 +79,31 @@ if test x$enable_libnotify = xyes ; then
     AC_SUBST(NOTIFY_CFLAGS)
     AC_SUBST(NOTIFY_LIBS)
 fi
+
+# Ubuntu libappindicator
+APPINDICATOR_REQUIRED=0.0.7
+
+AC_ARG_ENABLE(appindicator,
+                        AS_HELP_STRING([--enable-appindicator[=@<:@no/auto/yes@:>@]],[Build support for application indicators ]),
+                        [enable_appindicator=$enableval],
+                        [enable_appindicator="auto"])
+
+if test x$enable_appindicator = xauto ; then
+        PKG_CHECK_EXISTS([appindicator-0.1 >= $APPINDICATOR_REQUIRED],
+                         enable_appindicator="yes",
+                         enable_appindicator="no")
+fi
+
+if test x$enable_appindicator = xyes ; then
+        PKG_CHECK_EXISTS([appindicator-0.1 >= $APPINDICATOR_REQUIRED],,
+                         AC_MSG_ERROR([appindicator-0.1 is not installed]))
+        PKG_CHECK_MODULES(APP_INDICATOR,
+                        appindicator-0.1 >= $APPINDICATOR_REQUIRED)
+        AC_SUBST(APP_INDICATOR_CFLAGS)
+        AC_SUBST(APP_INDICATOR_LIBS)
+        AC_DEFINE(HAVE_APP_INDICATOR, 1, [Have AppIndicator])
+fi
+AM_CONDITIONAL(USE_APP_INDICATOR, test x"$enable_appindicator" = xyes)
 
 # *************
 # Documentation
@@ -179,6 +204,11 @@ if test x"$enable_libnotify" = xyes; then
 $LIBNOTIFY_VERSION_MINOR.$LIBNOTIFY_VERSION_MICRO)."
 else
 	echo "	Libnotify notifications ....: Disabled."
+fi
+if test x"$enable_appindicator" = xyes; then
+	echo "	App indicator support ....: Enabled."
+else
+	echo "	App indicator support ....: Disabled."
 fi
 if test x"$gconf" = xyes; then
 	echo "	Configuration ..............: gconf."
