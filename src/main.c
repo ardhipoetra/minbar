@@ -29,11 +29,18 @@
 #include <string.h>
 #include <libgnomecanvas/libgnomecanvas.h>
 #include <math.h>
+#include <locale.h>
 
 #include "main.h"
 #include "defines.h"
 #include "prefs.h"
 #include "locations-xml.h" 
+
+#define USE_APP_INDICATOR (1 && HAVE_APP_INDICATOR)
+
+#if USE_APP_INDICATOR
+#include <libappindicator/app-indicator.h>
+#endif
 
 #define USE_TRAY_ICON   1
 #define USE_NOTIFY    (USE_TRAY_ICON & HAVE_NOTIFY)
@@ -84,6 +91,9 @@ static GtkFileFilter     *filter_supported;
 /* tray icon */
 #if USE_TRAY_ICON
 static GtkStatusIcon       * status_icon;    
+#endif
+#if USE_APP_INDICATOR
+static AppIndicator *app_indicator;
 #endif
 static GDate        * currentDate;
 
@@ -1328,9 +1338,11 @@ int main(int argc, char *argv[])
     }
 #endif
     /* load the interface */
-    xml = glade_xml_new(g_build_filename(MINBAR_DATADIR,GLADE_MAIN_INTERFACE,NULL), NULL, NULL);
+    gchar *glade_filename = g_build_filename(MINBAR_DATADIR,GLADE_MAIN_INTERFACE,NULL);
+    xml = glade_xml_new(glade_filename, NULL, NULL);
     /* connect the signals in the interface */
     glade_xml_signal_autoconnect(xml);
+    g_free(glade_filename);
     
     /* Set up some widgets and options that are not stored in the glade xml */
     setup_widgets();
