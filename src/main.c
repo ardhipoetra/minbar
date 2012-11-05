@@ -42,8 +42,9 @@
 #include <libappindicator/app-indicator.h>
 #endif
 
-#define USE_TRAY_ICON   1
-#define USE_NOTIFY    (USE_TRAY_ICON & HAVE_NOTIFY)
+#define USE_TRAY_ICON   (!USE_APP_INDICATOR)
+#define CAN_HIDE_WINDOW (USE_TRAY_ICON || USE_APP_INDICATOR)
+#define USE_NOTIFY    (CAN_HIDE_WINDOW && HAVE_NOTIFY)
 
 #if USE_NOTIFY
 #include <libnotify/notify.h>
@@ -942,7 +943,7 @@ void init_prefs ()
     /* show on start up? */
     GtkWidget * mainwindow = glade_xml_get_widget(xml, "mainWindow");
     
-#if USE_TRAY_ICON
+#if CAN_HIDE_WINDOW
     if(!start_hidden && !start_hidden_arg)
     {
         gtk_widget_show(mainwindow);
@@ -1384,10 +1385,10 @@ int main(int argc, char *argv[])
 #if USE_TRAY_ICON
     /* set system tray tooltip text */
     set_status_tooltip();
+#endif
 #if USE_NOTIFY
     /* Used to balloon tray notifications */
     create_notification();
-#endif
 #endif
     /* start athan playing, time updating interval */
     g_timeout_add(60000, update_interval, NULL);
@@ -1637,7 +1638,7 @@ void setup_widgets()
 
     g_free(labeltext);
 
-#if USE_TRAY_ICON
+#if CAN_HIDE_WINDOW
     /* hide on minimise*/    
 
     g_signal_connect (mainwindow, "window-state-event", 
