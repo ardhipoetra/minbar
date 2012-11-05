@@ -7,6 +7,7 @@ AM_INIT_AUTOMAKE([1.9 foreign dist-bzip2 no-dist-gzip -Wall])
 AC_CONFIG_SRCDIR([src])
 
 AC_PROG_CC
+AM_PROG_CC_C_O
 AC_HEADER_STDC
 
 # *********
